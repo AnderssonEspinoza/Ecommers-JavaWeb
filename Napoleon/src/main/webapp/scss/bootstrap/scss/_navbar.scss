@@ -25,6 +25,7 @@
   padding-bottom: $navbar-padding-y;
   padding-left: $navbar-padding-x; // default: null
   @include gradient-bg();
+  background: rgba(0, 0, 0, 0.5);
 
   // Because flex properties aren't inherited, we need to redeclare these first
   // few properties so that content nested within behave properly.
