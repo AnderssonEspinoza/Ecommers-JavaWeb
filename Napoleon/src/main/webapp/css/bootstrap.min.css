@@ -199,11 +199,11 @@ sup {
   top: -0.5em;
 }
 a {
-  color: #81c408;
+  color: #f7eb7b;
   text-decoration: none;
 }
 a:hover {
-  color: #679d06;
+  color: #f3e029;
 }
 a:not([href]):not([class]),
 a:not([href]):not([class]):hover {
@@ -429,8 +429,9 @@ progress {
 }
 .display-3 {
   font-size: calc(1.525rem + 3.3vw);
-  font-weight: 800;
+
   line-height: 1.2;
+  
 }
 @media (min-width: 1200px) {
   .display-3 {
@@ -459,7 +460,7 @@ progress {
 }
 .display-6 {
   font-size: calc(1.375rem + 1.5vw);
-  font-weight: 800;
+  /*font-weight: 800;*/
   line-height: 1.2;
 }
 @media (min-width: 1200px) {
@@ -536,6 +537,13 @@ progress {
   padding-left: var(--bs-gutter-x, 0.75rem);
   margin-right: auto;
   margin-left: auto;
+}
+
+.container-fluid.fruite.py-5{
+    margin-top:40px;
+}
+.container-fluid.fruite.py-5.container-menu{
+    margin-top: 120px;
 }
 @media (min-width: 576px) {
   .container-sm,
@@ -753,6 +761,9 @@ progress {
 .g-5,
 .gx-5 {
   --bs-gutter-x: 3rem;
+}
+.row.g-4{
+    margin-top: 10px;
 }
 .g-5,
 .gy-5 {
@@ -3709,7 +3720,7 @@ fieldset:disabled .btn {
   justify-content: space-between;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  background: rgba(0, 0, 0, 0.5);
+ 
 }
 .navbar > .container,
 .navbar > .container-fluid,
@@ -3752,6 +3763,7 @@ fieldset:disabled .btn {
   flex-basis: 100%;
   flex-grow: 1;
   align-items: center;
+  
 }
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
@@ -3792,6 +3804,7 @@ fieldset:disabled .btn {
   .navbar-expand-sm {
     flex-wrap: nowrap;
     justify-content: flex-start;
+    
   }
   .navbar-expand-sm .navbar-nav {
     flex-direction: row;
@@ -6261,6 +6274,8 @@ fieldset:disabled .btn {
 }
 .align-items-center {
   align-items: center !important;
+  justify-content: center;
+  text-align: center;
 }
 .align-items-baseline {
   align-items: baseline !important;
@@ -6463,7 +6478,7 @@ fieldset:disabled .btn {
   margin-bottom: 1.5rem !important;
 }
 .mb-5 {
-  margin-bottom: 3rem !important;
+  /*margin-bottom: 3rem !important;*/
 }
 .mb-auto {
   margin-bottom: auto !important;
@@ -6667,8 +6682,9 @@ fieldset:disabled .btn {
   padding-bottom: 1.5rem !important;
 }
 .py-5 {
-  padding-top: 3rem !important;
-  padding-bottom: 3rem !important;
+  
+  /*padding-bottom: 3rem !important;*/
+  
 }
 .pt-0 {
   padding-top: 0 !important;
@@ -6834,7 +6850,7 @@ fieldset:disabled .btn {
   word-break: break-word !important;
 }
 .text-primary {
-  color: #81c408 !important;
+  color:#FED060 !important;
 }
 .text-secondary {
   color: #ffb524 !important;
