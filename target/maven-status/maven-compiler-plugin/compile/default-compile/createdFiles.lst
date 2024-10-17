@@ -1,0 +1,9 @@
+modelo\dao\UsuariosDAO.class
+com\mycompany\napoleon\resources\JakartaEE8Resource.class
+modelo\dto\Producto.class
+modelo\dao\ProductoDAO.class
+com\mycompany\napoleon\JakartaRestConfiguration.class
+servicios\ConectorDB.class
+controlador\ProductoController.class
+controlador\ControladorRegistro.class
+modelo\dto\Usuarios.class

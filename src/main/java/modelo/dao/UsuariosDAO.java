@@ -18,7 +18,7 @@ public class UsuariosDAO {
     //private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     public UsuariosDAO() throws SQLException {
-        cnx = new ConectorDB().getConexion();
+        cnx = new ConectorDB().conectar();
     }
 
     // Metodo para capturar los datos de los usuarios en una lista
