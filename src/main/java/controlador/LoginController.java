@@ -1,14 +1,15 @@
-/*package controlador;
+package controlador;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import modelo.dao.UsuariosDAO;
 import modelo.dto.Usuarios;
 
@@ -41,8 +42,9 @@ public class LoginController extends HttpServlet {
 
         if (usuario != null && usuario.getContrasena().equals(password) && "Administrador".equals(usuario.getRol())) {
             response.getWriter().write("{\"success\": true}");
-        } else {
-            response.getWriter().write("{\"success\": false}");
+        } else if(usuario != null && usuario.getContrasena().equals(password) && "Cliente".equals(usuario.getRol())) {
+            response.getWriter().write("{\"success\": true}");
+            response.sendRedirect(request.getContextPath()+"/index.jsp");
         }
     }
 
@@ -51,4 +53,3 @@ public class LoginController extends HttpServlet {
         return "Short description";
     }
 }
-*/

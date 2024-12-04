@@ -30,7 +30,7 @@ public class ProductoDAO {
         String cadSQL = "SELECT id_producto,nombre_producto,precio,ruta_img,categoria from producto";
 
         try {
-            con = cn.conectar();
+            con = cn.getConexion();
             ps = con.prepareStatement(cadSQL);
             rs = ps.executeQuery();
             lista = new ArrayList<>();

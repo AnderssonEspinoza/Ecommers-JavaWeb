@@ -18,7 +18,7 @@ public class UsuariosDAO {
     //private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     public UsuariosDAO() throws SQLException {
-        cnx = new ConectorDB().conectar();
+        cnx = new ConectorDB().getConexion();
     }
 
     // Metodo para capturar los datos de los usuarios en una lista
@@ -83,11 +83,12 @@ public class UsuariosDAO {
 
     // Método para insertar un nuevo usuario
     public boolean registrarUsuario(Usuarios usuario) {
-        String sql = "INSERT INTO usuarios (nombre_usuario, correo, contrasena) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO usuarios (nombre_usuario, contrasena, correo) VALUES (?, ?, ?)";
         try (PreparedStatement ps = cnx.prepareStatement(sql)) {
             ps.setString(1, usuario.getNombre_usuario());
+            
+            ps.setString(3, usuario.getContrasena()); 
             ps.setString(2, usuario.getCorreo());
-            ps.setString(3, usuario.getContrasena()); // Asegúrate de encriptar la contraseña
             
             ps.executeUpdate();
             return true;

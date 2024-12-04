@@ -30,7 +30,7 @@
     </head>
 
     <body>
-        
+
 
         <!-- Spinner Start -->
         <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
@@ -41,7 +41,7 @@
 
         <!-- Navbar start -->
         <div class="container-fluid fixed-top">
-                
+
             <div class="container px-0">
                 <nav class="navbar navbar-light  navbar-expand-xl">
                     <a href="index.html" class="navbar-brand"><h1 class="text-primary display-6">Napoléon</h1></a>
@@ -50,7 +50,7 @@
                     </button>
                     <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                         <div class="navbar-nav mx-auto">
-                            <a href="index.html" class="nav-item nav-link active">Inicio sadsadsad</a>
+                            <a href="index.html" class="nav-item nav-link active">Inicio</a>
                             <a href="ProductoController?menu=Productos" class="nav-item nav-link">Menú</a>
                             <a href="reservas.html" class="nav-item nav-link">Reservas</a>
                             <!--<a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a>-->
@@ -72,7 +72,15 @@
                                 <i class="fa fa-shopping-bag fa-2x"></i>
                                 <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
                             </a>
-                            <a href="#" class="my-auto">
+                            <% 
+                                String nombreUsuario = (String) session.getAttribute("nombre_usuario");
+                                if (nombreUsuario != null) { 
+                            %>
+                            <a class="nav-link" href="#">Bienvenido, <%= nombreUsuario %></a>
+                            <% } else { %>
+                            <a class="nav-link" href="login.jsp">Iniciar sesión</a>
+                            <% } %>
+                            <a href="login.jsp" class="my-auto">
                                 <i class="fas fa-user fa-2x"></i>
                             </a>
                         </div>
@@ -95,7 +103,7 @@
                         <div class="input-group w-75 mx-auto d-flex">
                             <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
                             <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
-                                </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -110,7 +118,7 @@
                     <div class="col-md-12 col-lg-7">
                         <h4 class="mb-3 text-secondary">Un lugar donde el café y la tradición se encuentran</h4>
                         <h1 class="mb-5 display-3 text-primary">Bienvenido a Napoléon</h1>
-                        
+
                     </div>
                     <!--div class="col-md-12 col-lg-5">
                         <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
@@ -507,8 +515,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
-                                        
+
+
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
@@ -614,21 +622,21 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
-                                        
-                                        
+
+
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
-                        
+
+
                         <!-- Seccion de postres -->
                         <div id="tab-2" class="tab-pane fade show p-0">
                             <div class="row g-4">
                                 <div class="col-lg-12">
                                     <div class="row g-4">
-                                        
+
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
@@ -899,20 +907,20 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
-                                        
+
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Seccion de bebidas -->
                         <div id="tab-3" class="tab-pane fade show p-0">
                             <div class="row g-4">
                                 <div class="col-lg-12">
                                     <div class="row g-4">
-                                        
-                                        
+
+
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
@@ -1018,13 +1026,13 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
-                                        
+
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!--
                         <div id="tab-4" class="tab-pane fade show p-0">
                             <div class="row g-4">
@@ -1263,7 +1271,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -1512,7 +1520,7 @@
 
 
         <!-- Fact Start -->
-        
+
         <div class="container-fluid py-6">
             <div class="container">
                 <div class="bg-light p-3 rounded">
@@ -1528,10 +1536,10 @@
                                 <i class="fa fa-users text-secondary"></i>
                                 <h4>MISIÓN</h4>
                                 <p class="mb-4 text-dark"> Nuestra misión es ofrecer una experiencia culinaria excepcional a 
-                                                            nuestros clientes mediante la creación de productos de repostería de alta 
-                                                            calidad. Nos esforzamos por brindar un servicio impecable y una 
-                                                            experiencia digital fluida que refleje nuestros valores de innovación, 
-                                                            calidad y atención al cliente.</p>
+                                    nuestros clientes mediante la creación de productos de repostería de alta 
+                                    calidad. Nos esforzamos por brindar un servicio impecable y una 
+                                    experiencia digital fluida que refleje nuestros valores de innovación, 
+                                    calidad y atención al cliente.</p>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-6 col-xl-6">
@@ -1539,14 +1547,14 @@
                                 <i class="fa fa-users text-secondary"></i>
                                 <h4>VISIÓN</h4>
                                 <p class="mb-4 text-dark">Cafetería Napoleón se visualiza como la cafetería de referencia en 
-                                                            Lima para quienes buscan una experiencia única en repostería de alta 
-                                                            calidad, combinando tradición con innovación. Nos enfocamos en crear 
-                                                            momentos memorables para nuestros clientes a través de un servicio 
-                                                            excepcional y productos de primera clase, consolidándonos como un 
-                                                            referente en el sector.</p>
+                                    Lima para quienes buscan una experiencia única en repostería de alta 
+                                    calidad, combinando tradición con innovación. Nos enfocamos en crear 
+                                    momentos memorables para nuestros clientes a través de un servicio 
+                                    excepcional y productos de primera clase, consolidándonos como un 
+                                    referente en el sector.</p>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -1572,7 +1580,7 @@
                             <div class="d-flex align-items-center flex-nowrap">
                                 <div class="bg-secondary rounded">
                                     <img src="especiales img/perfil img.jpg" class="img-fluid rounded" style="width: 100px; height: 100px;" alt=""/>
-                                    
+
                                 </div>
                                 <div class="ms-4 d-block">
                                     <h4 class="text-dark">Silvia Diaz Castañeda</h4>
@@ -1597,7 +1605,7 @@
                             <div class="d-flex align-items-center flex-nowrap">
                                 <div class="bg-secondary rounded">
                                     <img src="especiales img/perfil img.jpg" class="img-fluid rounded" style="width: 100px; height: 100px;" alt=""/>
-                                    
+
                                 </div>
                                 <div class="ms-4 d-block">
                                     <h4 class="text-dark">Crist Zapata</h4>
@@ -1622,7 +1630,7 @@
                             <div class="d-flex align-items-center flex-nowrap">
                                 <div class="bg-secondary rounded">
                                     <img src="especiales img/perfil img.jpg" class="img-fluid rounded" style="width: 100px; height: 100px;" alt=""/>
-                                    
+
                                 </div>
                                 <div class="ms-4 d-block">
                                     <h4 class="text-dark">Gerardo Atiro</h4>
@@ -1663,86 +1671,86 @@
                                 <button type="submit" class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white" style="top: 0; right: 0;">Subscríbete ahora</button>
                             </div>
                         </div>
-<div class="col-lg-3">
-    <div class="d-flex justify-content-end pt-3">
-        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="https://www.instagram.com/napoleon_patisserie/?hl=es" target="_blank">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="https://www.facebook.com/NapoleonPatisserieParis/" target="_blank">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="https://www.tiktok.com/@napoleon_patisserie?is_from_webapp=1&sender_device=pc" target="_blank">
-            <i class="fab fa-tiktok"></i>
-        </a>
-    </div>
-</div>
-                </div>  
-                <div class="row g-5">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-item">
-                            <h4 class="text-light mb-3">¿Por qué Napoleón?</h4>
-                            <p class="mb-4">Napoléon es un pedazo de Francia en Lima. Jérôme Galiano lo nombró asi en honor al famoso pastelero francés Gaston Lenôtre, conocido por los parisinos como “el Napoleón de la pastelería” </p>
-
->
+                        <div class="col-lg-3">
+                            <div class="d-flex justify-content-end pt-3">
+                                <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="https://www.instagram.com/napoleon_patisserie/?hl=es" target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="https://www.facebook.com/NapoleonPatisserieParis/" target="_blank">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="https://www.tiktok.com/@napoleon_patisserie?is_from_webapp=1&sender_device=pc" target="_blank">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="d-flex flex-column text-start footer-item">
+                    </div>  
+                    <div class="row g-5">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-item">
+                                <h4 class="text-light mb-3">¿Por qué Napoleón?</h4>
+                                <p class="mb-4">Napoléon es un pedazo de Francia en Lima. Jérôme Galiano lo nombró asi en honor al famoso pastelero francés Gaston Lenôtre, conocido por los parisinos como “el Napoleón de la pastelería” </p>
 
-                            <h4 class="text-light mb-3">Nosotros</h4>
-                            <a class="btn-link" href="ProductoController?menu=Productos">Menú</a>                            
-                            <a class="btn-link" href="contact.html">Contáctanos</a>
-                            <a class="btn-link" href="privacidad.html">Política de Privacidad</a>
-                            <a class="btn-link" href="terminos.html">Términos y condiciones</a>
-                            <a class="btn-link" href="preguntas.html">Preguntas Frecuentes</a>
- 
-
+                                >
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="d-flex flex-column text-start footer-item">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="d-flex flex-column text-start footer-item">
 
-                            <h4 class="text-light mb-3">Cuenta</h4>
-                            <a class="btn-link" href="">Mi cuenta</a>
-                            <a class="btn-link" href="">Mis compras</a>
-                            <a class="btn-link" href="reclamaciones.html">Libro de Reclamaciones</a>
-                            <a class="btn-link" href="sugerencias.html">Sugerencias</a>
+                                <h4 class="text-light mb-3">Nosotros</h4>
+                                <a class="btn-link" href="ProductoController?menu=Productos">Menú</a>                            
+                                <a class="btn-link" href="contact.html">Contáctanos</a>
+                                <a class="btn-link" href="privacidad.html">Política de Privacidad</a>
+                                <a class="btn-link" href="terminos.html">Términos y condiciones</a>
+                                <a class="btn-link" href="preguntas.html">Preguntas Frecuentes</a>
 
+
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-item">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="d-flex flex-column text-start footer-item">
 
-                            <h4 class="text-light mb-3">Contacto</h4>
-                            <p>Dirección: Vía Principal 176, San Isidro 15073</p>
-                            <p>Email: napoleon.cafe@gmail.com</p>
-                            <p>Whatsapp: + 51 925 261 398</p>
-                            <p>Formas de Pago</p>
+                                <h4 class="text-light mb-3">Cuenta</h4>
+                                <a class="btn-link" href="">Mi cuenta</a>
+                                <a class="btn-link" href="">Mis compras</a>
+                                <a class="btn-link" href="reclamaciones.html">Libro de Reclamaciones</a>
+                                <a class="btn-link" href="sugerencias.html">Sugerencias</a>
 
-                            <img src="img/payment.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-item">
+
+                                <h4 class="text-light mb-3">Contacto</h4>
+                                <p>Dirección: Vía Principal 176, San Isidro 15073</p>
+                                <p>Email: napoleon.cafe@gmail.com</p>
+                                <p>Whatsapp: + 51 925 261 398</p>
+                                <p>Formas de Pago</p>
+
+                                <img src="img/payment.png" class="img-fluid" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Footer End -->
+            <!-- Footer End -->
 
 
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+            <!-- Back to Top -->
+            <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
 
-        
-    <!-- JavaScript Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+            <!-- JavaScript Libraries -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="lib/easing/easing.min.js"></script>
+            <script src="lib/waypoints/waypoints.min.js"></script>
+            <script src="lib/lightbox/js/lightbox.min.js"></script>
+            <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+            <!-- Template Javascript -->
+            <script src="js/main.js"></script>
     </body>
 
 </html>

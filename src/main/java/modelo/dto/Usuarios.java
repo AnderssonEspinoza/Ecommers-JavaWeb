@@ -5,18 +5,20 @@ import java.sql.Date;
 public class Usuarios {
     private int id_usuario;
     private String nombre_usuario;
-    private String correo;
+    
     private String contrasena;
+    private String correo;
     private String rol;      
     private Date fecha_registro;
     
     
 
-    public Usuarios(int id_usuario, String nombre_usuario, String correo, String contrasena, String rol, Date fecha_registro) {
+    public Usuarios(int id_usuario, String nombre_usuario,  String contrasena, String correo, String rol, Date fecha_registro) {
         this.id_usuario = id_usuario;
         this.nombre_usuario = nombre_usuario;
-        this.correo = correo;
         this.contrasena = contrasena;
+        this.correo = correo;
+        
         this.rol = rol;       
         this.fecha_registro = fecha_registro;
     }

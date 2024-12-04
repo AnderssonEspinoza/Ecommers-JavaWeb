@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modelo.dao.UsuariosDAO;
 import modelo.dto.Usuarios;
 
@@ -41,7 +42,7 @@ public class ControladorRegistro extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ControladorRegistro</title>");            
+            out.println("<title>Servlet ControladorRegistro</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ControladorRegistro at " + request.getContextPath() + "</h1>");
@@ -76,47 +77,57 @@ public class ControladorRegistro extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         response.setContentType("text/html;charset=UTF-8");
 
         try {
             // Obtener los parámetros del formulario
             String nombre_usuario = request.getParameter("nombre_usuario");
-            String correo = request.getParameter("correo");
             String contrasena = request.getParameter("contrasena");
+            String correo = request.getParameter("correo");
+            
             //String rol = "cliente";  // Rol por defecto
             Date fecha_registro = new Date(System.currentTimeMillis());  // Fecha actual
 
             // Crear el objeto Usuario
-            Usuarios usuario = new Usuarios(0, nombre_usuario, correo, contrasena, "cliente", fecha_registro);
+            Usuarios usuario = new Usuarios(0, nombre_usuario, contrasena, correo, "cliente", fecha_registro);
 
             // Registrar el usuario usando el DAO
             UsuariosDAO dao = new UsuariosDAO();
 
-            if (dao.existByCorreo(correo)) {
-                out.println("<html><body>");
-                out.println("<h1>Error: El usuario con el correo \"" + correo + "\" ya existe.</h1>");
-                out.println("</body></html>");
-            } else {
-                // Guardar el usuario en la base de datos
-                dao.registrarUsuario(usuario); // Método que guarda el usuario en la base de datos
-                // Mensaje inserccion éxitosa
-                out.println("<html><body>");
-                out.println("<h1>Usuario registrado exitosamente</h1>");
-                out.println("</body></html>");
+            try {
+
+                if (dao.existByCorreo(correo)) {
+                    out.println("<html><body>");
+                    out.println("<h1>Error: El usuario con el correo \"" + correo + "\" ya existe.</h1>");
+                    out.println("</body></html>");
+                } else {
+                    // Guardar el usuario en la base de datos
+                    dao.registrarUsuario(usuario); // Método que guarda el usuario en la base de datos
+                    HttpSession session = request.getSession();
+                    session.setAttribute("nombre_usuario", nombre_usuario);
+                    // Mensaje inserccion éxitosa
+                    out.println("<html><body>");
+                    out.println("<h1>Usuario registrado exitosamente</h1>");
+                    out.println("</body></html>");
+                    response.sendRedirect(request.getContextPath()+"/index.jsp");
+                }
+
+            } catch (NumberFormatException ex) {
+                Logger.getLogger(ControladorRegistro.class.getName()).log(Level.SEVERE, "Error de formato numérico", ex);
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Formato numérico inválido en el formulario");
+            } catch (NullPointerException ex) {
+                Logger.getLogger(ControladorRegistro.class.getName()).log(Level.SEVERE, "Valor nulo encontrado", ex);
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Se encontró un valor nulo en el formulario");
+            } catch (Exception ex) {
+                Logger.getLogger(ControladorRegistro.class.getName()).log(Level.SEVERE, "Error inesperado", ex);
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error inesperado en el servidor");
             }
+
+       
         } catch (SQLException ex) {
-            // Manejar el error SQL
             Logger.getLogger(ControladorRegistro.class.getName()).log(Level.SEVERE, null, ex);
-            response.sendError(javax.servlet.http.HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error al acceder a la base de datos");
-        } catch (Exception ex) {
-            // Manejar errores generales
-            Logger.getLogger(ControladorRegistro.class.getName()).log(Level.SEVERE, null, ex);
-            response.sendError(javax.servlet.http.HttpServletResponse.SC_BAD_REQUEST, "Datos inválidos en el formulario");
         }
-        
-        
-        
     }
 
     /**

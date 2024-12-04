@@ -36,9 +36,7 @@
                 <button type="submit">Crear</button>
                 <button id="backToLogin" class="back-button" type="button" onclick="toggleForms()"> ← </button>
             </form>
-            <c:if test="${not empty errorMessage}">
-                <div class="error">${errorMessage}</div>
-            </c:if>
+            
         </section>
     </main>
     <script src="js/scripts-login.js"></script>
